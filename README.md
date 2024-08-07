@@ -3,16 +3,16 @@
 This thing wastes your cpu while bruteforcing nitro
 
 
-# HOW TO COMPILE
+## HOW TO COMPILE:
 
-# WINDOWS
+## WINDOWS:
 
 "gcc -o QNG.exe QNG.c -I"YOUR CURL PATH%\include" -L"%YOUR CURL PATH%\lib" -lcurl -fopenm"
 
-# LINUX
+## LINUX:
 
 i have no idea bro
 
-# MACOS
+## MACOS:
 
 read linux
