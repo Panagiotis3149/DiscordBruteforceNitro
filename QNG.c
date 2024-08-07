@@ -6,7 +6,7 @@
 #include <omp.h>
 #include <windows.h>
 
-#define WEBHOOK_URL "YOUR WEBHOOK URL" // change this
+#define WEBHOOK_URL "https://discord.com/api/webhooks/1270793936344186911/agfuMk0DRdhXApMDoa8Oz4XNZiAzYeWXv48PR5pM4ZWRXmbxAx-Gjbe1sIBbo7vNU7N6" // CHANGE THIS
 
 uint32_t xorshift_state = 1;
 uint32_t xorshift() {
@@ -21,11 +21,11 @@ char* generate_string() {
     for (int i = 0; i < 18; i++) {
         int type = xorshift() % 3;
         if (type == 0) {
-            str[i] = (xorshift() % 26) + 'a'; 
+            str[i] = (xorshift() % 26) + 'a'; // lowercase
         } else if (type == 1) {
-            str[i] = (xorshift() % 26) + 'A'; 
+            str[i] = (xorshift() % 26) + 'A'; // uppercase
         } else {
-            str[i] = (xorshift() % 10) + '0';
+            str[i] = (xorshift() % 10) + '0'; // number
         }
     }
     str[18] = '\0';
@@ -66,16 +66,15 @@ void send_webhook(CURL* curl, const char* code) {
 int main() {
     srand(time(NULL));
     int num_cores = omp_get_max_threads();
-    omp_set_num_threads(num_cores * 16); // change this 
+    omp_set_num_threads(num_cores * 16); // set global number of threads
 
     printf("CPU CORES: %d\n", num_cores);
-    printf("THREADS: %d x\n", num_cores * 16); // change this
-
-    curl_global_init(CURL_GLOBAL_DEFAULT);
+    printf("THREADS: %d x\n", num_cores * 16);
 
     #pragma omp parallel
     {
         CURL* curl;
+        curl_global_init(CURL_GLOBAL_DEFAULT);
         curl = curl_easy_init();
 
         while (1) {
@@ -87,9 +86,8 @@ int main() {
         }
 
         curl_easy_cleanup(curl);
+        curl_global_cleanup();
     }
-
-    curl_global_cleanup();
 
     return 0;
 }
