@@ -6,7 +6,7 @@
 #include <omp.h>
 #include <windows.h>
 
-#define WEBHOOK_URL "https://discord.com/api/webhooks/1270793936344186911/agfuMk0DRdhXApMDoa8Oz4XNZiAzYeWXv48PR5pM4ZWRXmbxAx-Gjbe1sIBbo7vNU7N6" // CHANGE THIS
+#define WEBHOOK_URL "url here" // CHANGE THIS
 
 uint32_t xorshift_state = 1;
 uint32_t xorshift() {
