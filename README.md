@@ -1,7 +1,8 @@
 # DiscordBruteforceNitro
 
 This thing wastes your cpu while bruteforcing nitro
-\n
+
+
 This would actually take around 647 quintillion YEARS to find a valid code
 
 
