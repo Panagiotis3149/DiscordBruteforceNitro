@@ -11,8 +11,8 @@ This thing wastes your cpu while bruteforcing nitro
 
 ## LINUX:
 
-i have no idea bro
+wine it or sum shit
 
 ## MACOS:
 
-read linux
+read linux bro
